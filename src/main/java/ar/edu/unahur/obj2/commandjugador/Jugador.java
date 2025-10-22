@@ -15,6 +15,12 @@ public class Jugador {
         this.posY = posY;
     }
 
+    public void reset() {
+        this.posX = 0;
+        this.posY=0;
+        this.cantMovimientos = 0;
+    }
+
     public Integer getPosX() {
         return posX;
     }
@@ -52,5 +58,5 @@ public class Jugador {
         return "Jugador{" + "posX=" + this.posX + ", posY=" 
         + this.posY + ", cantMovimientos=" + this.cantMovimientos + "}";
     }
-    
+
 }

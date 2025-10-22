@@ -16,6 +16,7 @@ public class Main {
             System.out.print("Ingrese otro comando para mover al jugador o q para salir: ");
             l = sc.next().toLowerCase().charAt(0);
         }
+        sc.close();
         
         
     }
