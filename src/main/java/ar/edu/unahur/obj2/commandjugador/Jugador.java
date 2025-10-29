@@ -1,9 +1,16 @@
 package ar.edu.unahur.obj2.commandjugador;
 
-public class Jugador {
+import java.util.HashSet;
+import java.util.Set;
+
+import ar.edu.unahur.obj2.commandjugador.observer.Observable;
+import ar.edu.unahur.obj2.commandjugador.observer.Observador;
+
+public class Jugador implements Observable{
     private Integer posX;
     private Integer posY;
     private Integer cantMovimientos = 0;
+    private Set<Observador> observadores = new HashSet<>();
 
     public Jugador() {
         this.posX = 0;
@@ -57,6 +64,21 @@ public class Jugador {
     public String toString() {
         return "Jugador{" + "posX=" + this.posX + ", posY=" 
         + this.posY + ", cantMovimientos=" + this.cantMovimientos + "}";
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+
+    @Override
+    public void quitarObservador(Observador observador) {
+        observadores.remove(observador);
+    }
+
+    @Override
+    public void notificar() {
+        observadores.forEach(o -> o.actualizar(this));
     }
 
 }

@@ -10,6 +10,7 @@ public abstract class MovimientoCommand {
     public void movete() {
         this.doMovete();
         jugador.incrementarMovimientos();
+        jugador.notificar();
     }
 
     protected abstract void doMovete();
